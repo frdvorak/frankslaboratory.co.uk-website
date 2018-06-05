@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Book flip</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.googleapis.com/css?family=Gugi" rel="stylesheet">
+
+<style>
+body {
+	margin: 0; 
+	padding: 0;
+	font-family: 'Gugi', cursive;
+}
+#background {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-repeat: no-repeat;
+	background-size: cover;
+	//background-position: center;
+	opacity: 0.5;
+	filter: blur(2px);
+	transition: .2s;
+}
+#wrapper {
+	position: absolute;
+	//border: 1px solid black;
+	width: 100%;
+	height: 100%;
+	min-width: 900px;
+	min-height: 400px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	//border: 1px solid black;
+	background-color: white;
+	overflow: hidden;
+}
+#book {
+	position: absolute;
+	top: 40%;
+	left: 30%;
+	transform: translate(-50%, -50%) rotateX(25deg) perspective(1000px);
+	transform-style: preserve-3d;
+	width: 220px;
+	height: 400px;
+	transition: 0.69s;
+}
+.side1 {
+	position: absolute;
+	width: 3px;
+	height: 100%;
+	right: -3px;
+	background: darkgray;
+	transform-origin: left;
+	transform: skewY(70deg);
+}
+.side2 {
+	position: absolute;
+	height: 5px;
+	width: 99%;
+	bottom: -5px;
+	left: 5px;
+	background: darkgray;
+	transform-origin: bottom;
+	transform: skewX(40deg);
+}
+#open {
+	position: absolute;
+	width: 10%;
+	height: 10%;
+	top: 20%;
+	left: 5%;
+	//transform: rotateX(180deg);
+	padding: 3%;
+	z-index: -5;
+	//border: 1px solid red;
+}
+#open>img {
+	position: relative;
+	top: -30px;
+	left: -135px;
+	width: 150px;
+	height: 150px;
+	transform: rotateX(180deg) rotate(120deg);
+	transform-origin: bottom;
+	transition: 1s;
+	opacity: 0;
+}
+
+.page {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	padding: 4%;
+	transform-origin: left;
+	transition: .6s cubic-bezier(.52,.36,1,.66);
+	transform-style: preserve-3d;
+	background-color: gray;
+	margin: 0;
+	padding: 0;
+}
+.page1 {
+	transform: rotateY(-15deg);
+}
+.page2 {
+	transform: rotateY(-10deg);
+}
+.page3 {
+	transform: rotateY(-5deg);
+}
+.page4 {
+	transform: rotateY(-1deg)
+}
+.front, .back {
+	backface-visibility: hidden;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	display: block;
+	padding: 10%;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.front {
+	//background-color: green;
+}
+.back {
+	//background-color: red;
+	transform: rotateY(180deg);
+}
+/*
+.page1 .front{
+	background-image: url('data/1.jpg');
+}
+.page1 .back{
+	background-image: url('data/2.jpg');
+}
+.page2 .front{
+	background-image: url('data/3.jpg');
+}
+.page2 .back{
+	background-image: url('data/4.jpg');
+}
+.page3 .front{
+	background-image: url('data/6.jpg');
+}
+.page3 .back{
+	background-image: url('data/6.jpg');
+}
+.page4 .front{
+	background-image: url('data/7.jpg');
+}*/
+
+/*************************PAGER***************************/
+#pagerWrapper {
+	position: absolute;
+	width: 187px;
+	height: 10%;
+	top: 90%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	padding: 1px;
+	z-index: 1;
+	transition: 1s;
+	//border: 1px solid green;
+}
+#pager {
+	filter: url(#goo);
+}
+#pager div {
+	width: 40px;
+	height: 40px;
+	border-radius: 100%;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	float: left;
+	//margin-left: 10px;
+	background: rgba(0,0,0,1);
+	transition: .9s;
+	background-repeat: no-repeat;
+	background-size: 40%;
+	//background-image: url('pointer.png');
+	background-position: 20px 100px;
+}
+#pager>div:nth-child(1){left: 0px;}
+#pager>div:nth-child(2){left: 50px;}
+#pager>div:nth-child(3){left: 100px;}
+#pager>div:nth-child(4){left: 150px;}
+
+#pager .active {
+	z-index: 1;
+	background-position: 20px 20px;
+}
+#pager .indexer {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	transition: .6s cubic-bezier(.74,.22,0,.64);
+	z-index: -1;
+	background: rgba(0,0,0,1);
+}
+/*************************NEXT PREV************************/
+.prevnext#prev, .prevnext#next {
+	position: absolute;
+	display: block;
+	width: 150px;
+	height: 50px;
+	//float: left;
+	//overflow:hidden;
+	top:5px;
+	font-size: 30px;
+	font-weight:900;
+	transition:opacity 1s;
+
+}
+.prevnext#prev {left: -155px; opacity: 0;}
+.prevnext#next {left: 195px;}
+
+.prevnext span{
+	position: relative;
+	left: 11px;
+	top: -8px;
+	display: block;
+	width: 25%;
+	float: left;
+	color: rgba(0,0,0,1);
+	transition-duration: 1s;
+
+}
+#prev.activate span, #next.activate span {
+	animation: appear .6s forwards;
+	color: rgba(0,0,0,1);
+}
+
+@keyframes appear {
+	0% 		{color: rgba(0,0,0,0);}
+	99%		{color: rgba(0,0,0,0);}
+	100%	{color: rgba(0,0,0,1);}
+}
+
+
+.prevnext span:before {
+	color: rgba(0,0,0,1);
+}
+#prev.activate span:before {
+	animation: glitch .6s forwards;
+	
+}
+#next.activate span:before {
+	animation: glitch .6s forwards;
+}
+
+#prev>span:before, #next>span:before {
+	position: absolute;
+	left: 0;
+	top: 0;
+	content: ' ';
+	display: block;
+	width: 24%;
+	float: left;
+	text-transform: uppercase;
+	font-size: 30px;
+	//background: yellow;
+}
+
+@keyframes glitch {
+	0% 		{content: 'Q'}
+	5% 		{content: 'M'}
+	10% 	{content: 'Z'}
+	15% 	{content: 'B'}
+	20% 	{content: 'Y'}
+	25% 	{content: '£'}
+	30% 	{content: 'R'}
+	35% 	{content: '9'}
+	40% 	{content: 'T'}
+	45% 	{content: 'G'}
+	50% 	{content: 'Y'}
+	55% 	{content: '5'}
+	60% 	{content: 'U'}
+	65% 	{content: '7'}
+	70% 	{content: '$'}
+	75% 	{content: '%'}
+	80% 	{content: 'O'}
+	85% 	{content: '6'}
+	90% 	{content: '&';}
+	95% 	{content: 'K';}
+	100% 	{content: ' ';}
+}
+#prev>span:nth-child(1):before, #next>span:nth-child(1):before {animation-delay: 0s;}
+#prev>span:nth-child(2):before, #next>span:nth-child(2):before {animation-delay: .3s;}
+#prev>span:nth-child(3):before, #next>span:nth-child(3):before {animation-delay: .6s;}
+#prev>span:nth-child(4):before, #next>span:nth-child(4):before {animation-delay: .9s;}
+
+#prev>span:nth-child(1), #next span:nth-child(1) {animation-delay: 0s;}
+#prev>span:nth-child(2), #next span:nth-child(2) {animation-delay: .3s;}
+#prev>span:nth-child(3), #next span:nth-child(3) {animation-delay: .6s;}
+#prev>span:nth-child(4), #next span:nth-child(4) {animation-delay: .9s;}
+
+/******************** TEXT FIELD **********************************/
+#text {
+	position: absolute;
+	width: 40%;
+	height: auto;
+	top: 35%;
+	right: 1%;
+	padding: 3%;
+	z-index: -5;
+	//border: 1px solid blue;
+	transform: translate(0, -50%);
+}
+#text p {
+		text-align: justify;
+}
+.text1 {
+	display: block;
+}
+.text2 {
+	display: none;
+}
+.text3 {
+	display: none;
+}
+.text4 {
+	display: none;
+}
+img {
+	position: absolute;
+	bottom: -10%;
+	left: -4%;
+	width: 15%; 
+	height: auto;
+	z-index: -100;
+	opacity: 0.5;
+	transform: rotate(20deg);
+}
+
+/*********************************** MOBILE ********************************/
+@media screen and (max-width: 780px) {
+	body {
+		overflow: hidden;
+	}
+	#wrapper {
+		width: 100%;
+		height: 100%;
+		min-width: 360px;
+		min-height: 400px;
+		overflow: hidden;
+	}
+	#book {
+		margin-left: 12%;
+		top: 5%;
+		transform: translate(0, 0) rotateX(25deg) perspective(1000px);
+		transform-style: preserve-3d;
+		width: 160px;
+		height: 225px;
+		transition: 0.69s;
+		z-index: -10;
+	}
+	#text {
+		width: 100%;
+		top: 65%;
+		
+	}
+	#pagerWrapper {
+		position: absolute;
+		top: 94%;
+		transform: translate(-50%, -50%) scale(0.6);
+	}
+	h1 {
+		margin-left: 10%;
+		font-size: 17px;
+	}
+	p {
+		margin-left: 10%;
+		font-size: 12px;
+	}
+	#open {
+		transform: scale(.7);
+		z-index: -100;
+	}
+	img {
+		bottom: -4%;
+		left: -1%;
+		width: 20%; 
+	}
+	}
+}
+
+
+</style>
+<body>
+<div id='background'></div>	
+<div id='wrapper'>
+<div id='book'>
+	<div id='open'>
+		<img src='images/arrow2.png'>
+	</div>
+	<div class='page page1'>
+		<div class='front'></div>
+		<div class='back'></div>
+	</div>
+	<div class='page page2'>
+		<div class='front'></div>
+		<div class='back'></div>
+	</div>
+	<div class='page page3'>
+		<div class='front'></div>
+		<div class='back'></div>
+	</div>
+	<div class='page page4'>
+		<div class='front'></div>
+		<div class='back'></div>
+		<div class='side1'><img src='images/bender.png'></div>
+		<div class='side2'></div>
+	</div>
+
+</div>
+<div id='pagerWrapper'>
+	<div id='pager'>
+		<div class='button1'></div>
+		<div class='button2'></div>
+		<div class='button3'></div>
+		<div class='button4'></div>
+		<div class='indexer'></div>
+	</div>
+	<div class='prevnext activate' id='prev'></div>
+	<div class='prevnext' id='next'></div>
+</div>
+<div id='text'>
+	<div class='text text1'>
+		<h1>Now, now. Perfectly symmetrical violence never solved anything.</h1>
+		<p>It's been a few years since medical school, so remind me. Disemboweling in your species: fatal or non-fatal? Meh. Then throw her in the laundry room, which will hereafter be referred to as "the brig". I had more, but you go ahead. Come, Comrade Bender! We must take to the streets!</p>
+		<p>Random text by http://fillerama.io/</p>
+	</div>
+	<div class='text text2'>
+		<p>WINDMILLS DO NOT WORK THAT WAY! GOOD NIGHT! Yes. You gave me a dollar and some candy. Good man. Nixon's pro-war and pro-family. Who are you, my warranty?! Tell her she looks thin. Who's brave enough to fly into something we all keep calling a death sphere? Stop! Don't shoot fire stick in space canoe! Cause explosive decompression!</p>
+		<p>Random text by http://fillerama.io/</p>
+	</div>
+	<div class='text text3'>
+		<p>Ah, the 'Breakfast Club' soundtrack! I can't wait til I'm old enough to feel ways about stuff!  Switzerland is small and neutral!We are more like Germany, ambitious and misunderstood! I am the man with no name, Zapp Brannigan! Oh right. I forgot about the battle. </p>
+		<p>Random text by http://fillerama.io/</p>
+	</div>
+	<div class='text text4'>
+		<p>It's just like the story of the grasshopper and the octopus. All year long, the grasshopper kept burying acorns for winter, while the octopus mooched off his girlfriend and watched TV. But then the winter came, and the grasshopper died, and the octopus ate all his acorns. Also he got a race car. Is any of this getting through to you? Please, Don-Bot… look into your hard drive, and open your mercy file!</p>
+		<p>Random text by http://fillerama.io/</p>
+	</div>
+</div>
+<img src='images/bender.png'>
+<!---------------------------------- PAGER  ------------------------------------->
+
+
+<svg>
+	<defs>
+		<filter id='goo'>
+			<feGaussianBlur in='SourceGraphic' stdDeviation='10' result='blurName'/>
+			<feColorMatrix in='blurName' mode='matrix' values='	1 0 0 0 0
+															0 1 0 0 0 
+															0 0 1 0 0
+															0 0 0 16 -8 ' result='martixName'/>
+			<feBlend in='SourceGraphic' in2='martixName'/>
+		</filter>
+	</defs>
+</svg>
+<!---------------------------------- PAGER  END ------------------------------------->
+</div>
+</div><!--wrapper end -->
+
+<script>
+const book = document.querySelector('#book');
+const page1 = document.querySelector('.page1');
+const page2 = document.querySelector('.page2');
+const page3 = document.querySelector('.page3');
+const backgroundDiv = document.querySelector('#background');
+let activePage = 0;
+let backgroundImage = 3;
+const indexer = document.querySelector('#pager .indexer');
+const pager1 = document.querySelector('#pager>div:nth-child(1)');
+const pager2 = document.querySelector('#pager>div:nth-child(2)');
+const pager3 = document.querySelector('#pager>div:nth-child(3)');
+const pager4 = document.querySelector('#pager>div:nth-child(4)');
+//const pagerWrapper = document.querySelector('#pagerWrapper');
+const prev = document.querySelector('#prev');
+const next = document.querySelector('#next');
+const open = document.querySelector('#open');
+const openImg = document.querySelector('#open>img');
+setTimeout(arrowAppear, 1500);
+function arrowAppear(){
+	openImg.style.transform = 'rotateX(180deg) rotate(220deg)';
+	openImg.style.opacity = '1';
+}
+/*****text field*****/
+const textFields = document.querySelectorAll('.text');
+const text1 = document.querySelector('.text1');
+const text2 = document.querySelector('.text2');
+const text3 = document.querySelector('.text3');
+const text4 = document.querySelector('.text4');
+
+
+const turnPage = function(){
+	if ((this.id == 'next')||(this.id == 'book')){
+		activePage++;
+	}
+	if (this.id == 'prev') {
+		activePage--;
+	}
+	if (activePage > 3){
+		activePage = 0;
+	}
+	if (activePage < 0){
+		activePage = 0;
+	}
+	book.style.left = '40%';
+	prev.style.opacity = '1';
+	next.style.opacity = '1';
+	//pagerWrapper.style.left = '-85px';
+	textFields.forEach(textField => textField.style.display = 'none');
+
+	//backgroundDiv.style.backgroundImage = 'url(' + backgroundImage + '.jpg)';
+	if (activePage == 0){
+		prev.style.opacity = '0';
+		//prev.zIndex = '-10';
+		book.style.left = '30%';
+		page1.style.transform = 'rotateY(-15deg)';
+		page2.style.transform = 'rotateY(-10deg)';
+		page3.style.transform = 'rotateY(-5deg)';
+		openImg.style.transform = 'rotateX(180deg) rotate(220deg)';
+		openImg.style.transition = '1s';
+		openImg.style.opacity = '1';
+		text1.style.display = 'block';
+	//pagerWrapper.style.left = '25px';
+		indexer.style.left = '0px';
+	} else if (activePage == 1){
+		page1.style.transform = 'rotateY(-180deg)';
+		page2.style.transform = 'rotateY(-10deg)';
+		page3.style.transform = 'rotateY(-5deg)';
+		indexer.style.left = '50px';
+		openImg.style.transform = 'rotateX(180deg) rotate(480deg)';
+		openImg.style.transition = '0.360s';
+		openImg.style.opacity = '0';
+		text2.style.display = 'block';
+		setTimeout(moveArrow, 360);
+		function moveArrow(){
+			openImg.style.transition = '0s';
+			openImg.style.transform = 'rotateX(180deg) rotate(120deg)';
+		}
+		/*
+		setTimeout(addTransition, 800);
+		function addTransition(){
+			openImg.style.transition = '1s';
+		}*/
+		
+	} else if (activePage == 2){
+		indexer.style.left = '100px';
+		page1.style.transform = 'rotateY(-180deg)';
+		page2.style.transform = 'rotateY(-176deg)';
+		page3.style.transform = 'rotateY(-5deg)';
+		openImg.style.transition = '0s';
+		openImg.style.transform = 'rotateX(180deg) rotate(120deg)';
+		openImg.style.transition = '0s';
+		openImg.style.opacity = '0';
+		text3.style.display = 'block';
+
+	} else if (activePage == 3){
+		next.style.opacity = '0';
+		//next.zIndex = '-10';
+		page1.style.transform = 'rotateY(-180deg)';
+		page2.style.transform = 'rotateY(-176deg)';
+		page3.style.transform = 'rotateY(-172deg)';
+		indexer.style.left = '150px';
+		openImg.style.transform = 'rotateX(180deg) rotate(120deg)';
+		openImg.style.transition = '1s';
+		openImg.style.opacity = '0';
+		text4.style.display = 'block';
+		
+	}
+	//return activePage;
+	
+};
+
+
+// PAGER ////////////////////////////////////////////
+next.innerHTML = '<span>N</span><span>E</span><span>X</span><span>T</span>';
+prev.innerHTML = '<span>P</span><span>R</span><span>E</span><span>V</span>';
+const activator = function(){
+	prev.classList.toggle('activate');
+	next.classList.toggle('activate');
+};
+setInterval(activator, 3000);
+
+
+// EVENT Listeners ///////////////////////////////////
+book.addEventListener('click', turnPage);
+prev.addEventListener('click', turnPage);
+next.addEventListener('click', turnPage);
+
+
+</script>
+
+</body>
+</html>
+
