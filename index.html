@@ -1,6 +1,6 @@
  <!doctype html>
 <head>
-	<title>Frank's Laboratory</title>
+	<title>1.5 Frank's Laboratory</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css?family=Averia+Sans+Libre|Cantora+One" rel="stylesheet">
@@ -50,7 +50,7 @@ body {
 	font-size: 40px;
 	margin: 0;
 	padding: 0;
-	animation: scrollerMoveAuto 10s linear infinite;
+	animation: scrollerMoveAuto 12s linear infinite;
 	
 }
 .scroller:hover .fas {
@@ -66,6 +66,12 @@ body {
 	5.1% 	{transform: translateY(-60px); text-shadow: 0 0px 0 #fff;}
 	8% 		{transform: translateY(0); text-shadow: 0 10px 0px #fff;}
 	10%		{transform: translateY(0px); text-shadow: 0 50px 0 #fff;}
+	10.1% 		{transform: translateY(0); text-shadow: 0 -50px 0 #fff;}
+	11% 		{transform: translateY(0); text-shadow: 0 -10px 0 #fff;}
+	15% 		{transform: translateY(60px); text-shadow: 0 -10px 0 #fff;}
+	15.1% 	{transform: translateY(-60px); text-shadow: 0 0px 0 #fff;}
+	18% 		{transform: translateY(0); text-shadow: 0 10px 0px #fff;}
+	20%		{transform: translateY(0px); text-shadow: 0 50px 0 #fff;}
 	99.9%	{transform: translateY(0px); text-shadow: 0 50px 0 #fff;}
 	100% 	{transform: translateY(0); text-shadow: 0 -50px 0 #fff;}
 }
@@ -121,7 +127,7 @@ body {
 	font-weight: 100;
 	line-height: 12vw;
 	opacity: 0;
-	animation: appear 5s forwards 3.5s;
+	animation: appear 5s forwards 7s;
 }
 #page1 h2 {
 	position: absolute;
@@ -132,7 +138,7 @@ body {
 	margin-bottom: 2vh;
 	z-index:11;
 	opacity: 0;
-	animation: appear 5s forwards 5s;
+	animation: appear 5s forwards 8.5s;
 	background: radial-gradient(rgba(29,31,32,.2) 10%, rgba(29,31,32,0.4) 60%, rgba(29,31,32,0) 75%);
 }
 /**************** PAGE 1 TYPED TEXT **********************/
@@ -140,21 +146,17 @@ body {
 	position: absolute;
 	top: 5vw;
 	left: 10%;
-	width: 0ch;
+	width: 3ch;
 	height: auto;
-	animation: typeFirstLine 1s steps(20), blink 1s 2;
-	//animation: blink 1s infinite;
+	animation: typeFirstLine 1.5s steps(17) forwards 3s, blink 1s 6;
 	white-space: nowrap;
 	overflow: hidden;
 	font-family: consolas;
 	font-size: 2.5vw;
-	//border-right: 4px solid black;
-	width: 20ch;
 	color: white;
-	
 }
 @keyframes typeFirstLine {
-	0% 		{width: 0ch;}
+	0% 		{width: 3ch;}
 	100%	{width: 20ch;}
 }
 @keyframes blink {
@@ -169,14 +171,13 @@ body {
 	left: 10%;
 	width: 0ch;
 	height: auto;
-	animation: typeSecondLine 1s steps(16) forwards, blink 1s infinite forwards;
+	animation: typeSecondLine 1.5s steps(16) forwards 5.8s, blink 1s infinite forwards 5.5s;
 	white-space: nowrap;
 	overflow: hidden;
 	font-family: consolas;
 	font-size: 2.5vw;
 	width: 0ch;
 	color: white;
-	animation-delay: 2s;
 }
 @keyframes typeSecondLine {
 	0% 		{width: 0ch;}
@@ -319,7 +320,7 @@ body {
 	grid-column-end: 4;
 	border-top: 1px solid white;
 	color: white;
-	font-size: 12px;
+	font-size: 13px;
 	padding: 1%;
 	text-align: justify;
 }
@@ -396,7 +397,7 @@ body {
 .img2 {background-image: url('images/preview_draw.png');}
 .img3 {background-image: url('images/preview_bookcarousel.png');}
 .img4 {background-image: url('images/preview_3dbox.png');}
-.img5 {background-image: url('images/preview_productpage.png');}
+.img5 {background-image: url('images/preview_menuHoverEffects.png');}
 .img6 {background-image: url('images/preview_socialicons.png');}
 
 .boxInfo {
@@ -823,113 +824,17 @@ figure:hover span.center:before{
 	box-shadow: 0px -50px 50px rgba(20,20,20,1),
 				inset 0px 50px 50px rgba(25,25,22,.51);
 }
-
-/**************************************************************************/
-/**************************************************************************/
-/********************* TABLET STYLES + MOBILE LANDSCAPE *******************/
-/**************************************************************************/
-/**************************************************************************/
-@media screen and (max-width: 800px) {
-/**************** TABLET STYLES PAGE 2 ************************/
-	#page2 {
-		height: 55%;
-		grid-template-columns: auto auto;
-		grid-template-rows: 2% auto auto auto 15%;
-	}
-		#page2 header, #page2 footer{
-		grid-column-start: 1;
-		grid-column-end: 3;
-	}
-		.boxInfo h2 {
-		font-size: 4vw;
-	}
-/*************** TABLET STYLES PAGE 3 **************************/
-	.contactButtons {
-		position: absolute;
-		width: 100vw;
-		height: auto;
-		top: 7vh;
-		right: 0vw;
-	}
-	.billboard p {
-		font-size: 3vw;
-	}
-	.contactButtons figure{
-		margin-top: 1.5vh;
-		width: 80vw;
-		height: 6vh;
-	}
-	.contactButton span {
-		line-height: 6vh;
-	}
-	.billboardWrapper {
-		position: absolute;
-		top: 58%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		height: 45vh;
-		width: 60vw;
-	}
-	.table {
-		top: 50%;
-		height: 50%;
-	}
-	.pencil {
-		left: 1vw;
-		width: 27vw;
-		max-width: 100px;
-	}
-	#page3 .scroller {
-		display: none;
-	}
-}
-/**************************************************************************/
-/**************************************************************************/
-/********************** MOBILE STYLES (PORTRAIT ONLY) *********************/
-/**************************************************************************/
-/**************************************************************************/
-@media screen and (max-width: 330px) and (orientation: portrait){
-/**************** MOBILE STYLES PAGE 2 **************************/
-	#page2 {
-		height: 75%;
-		grid-template-columns: auto;
-		grid-template-rows: 5% auto auto auto auto auto auto 15%;
-	}
-	#page2 header, #page2 footer{
-		grid-column-start: 1;
-		grid-column-end: 2;
-		font-size: 11px;
-	}
-	.boxInfo h2 {
-		font-size: 5vw;
-	}
-/***************** MOBILE STYLES PAGE 3 **************************/	
-	.billboard p {
-		font-size: 4vw;
-	}
-	.pencil {
-		display: none;
-	}
-	.socialMediaLinks ul{
-		width: 240px;
-		left: 50%;
-		bottom: 3%;
-		transform: translate(-50%,0) scale(.7) ;
-	}
-	.table {
-		top: 50%;
-		height: 50%;
-	}
-}
 /**************************************************************************/
 /**************************************************************************/
 /********************** LARGE SCREENS (WIDE) ******************************/
 /**************************************************************************/
 /**************************************************************************/
-
-
-
 @media screen and (min-width: 1200px) {
+
+/********************** LARGE SCREENS (WIDE) PAGE 2************************/
+#page2 footer {
+	font-size: 16px;
+}
 /********************** LARGE SCREENS (WIDE) PAGE 3************************/
 .contactButton span{
 	font-size: 20px;
@@ -983,6 +888,165 @@ figure:hover span.center:before{
 	opacity: 1;
 }
 
+}
+/**************************************************************************/
+/**************************************************************************/
+/********************* TABLET STYLES + MOBILE LANDSCAPE *******************/
+/**************************************************************************/
+/**************************************************************************/
+@media screen and (max-width: 800px) {
+/**************** TABLET STYLES PAGE 2 ************************/
+	#page2 {
+		height: 40%;
+		grid-template-columns: auto auto;
+		grid-template-rows: 2% auto auto auto 15%;
+	}
+		#page2 header, #page2 footer{
+		grid-column-start: 1;
+		grid-column-end: 3;
+	}
+		.boxInfo h2 {
+		font-size: 4vw;
+	}
+/*************** TABLET STYLES PAGE 3 **************************/
+	.contactButtons {
+		position: absolute;
+		width: 40vw;
+		height: auto;
+		top: 4vw;
+		right: 2vw;
+	}
+	.billboard p {
+		font-size: 3vw;
+	}
+	.contactButtons figure{
+		margin-top: 1.5vh;
+		width: 100%;
+		height: 8vh;
+	}
+	.contactButton span {
+		line-height: 8vh;
+	}
+	.billboardWrapper {
+		position: absolute;
+		top: 52%;
+		left: 5%;
+		transform: translate(0, -50%);
+		height: 50vh;
+		max-height: 1000px;
+		width: 70vw;
+	}
+	.billboard {
+		max-height: 1000px;
+	}
+	.table {
+		top: 50%;
+		height: 50%;
+	}
+	.pencil {
+		left: 1vw;
+		width: 27vw;
+		max-width: 100px;
+	}
+	#page1 .scroller {
+		transform: translate(-50%,0) scale(0.8);
+	}
+	#page3 .scroller {
+		top: 5vw;
+		left: 1vw;
+		transform: translate(0,0) rotate(-180deg) scale(0.8);
+	}
+
+}
+/**************************************************************************/
+/**************************************************************************/
+/******************** MOBILE STYLES (PORTRAIT ONLY) ***********************/
+/**************************************************************************/
+/**************************************************************************/
+@media screen and (max-width: 430px) and (orientation : portrait){
+
+/**************** MOBILE STYLES PAGE 1 **************************/
+#page1 footer {
+	position: absolute;
+	left: 2%;
+	top: 2%;
+	width: auto;
+	height: auto;
+	z-index: 100;
+}
+#page1 h1 {
+	font-size: 18vw;
+	left: 0;
+	top: 2%;
+	float: left;
+	animation: appear 5s forwards .5s;
+}
+#page1 h2 {
+	font-size:5vw;
+	top: -1%;
+	left: 35%;
+	animation: appear 5s forwards 1.5s;
+	background: none;
+}
+.firstTypedLine, .secondTypedLine {
+	display: none;
+}
+
+/**************** MOBILE STYLES PAGE 2 **************************/
+	#page2 {
+		height: 75%;
+		grid-template-columns: auto;
+		grid-template-rows: 2% auto auto auto auto auto auto 15%;
+	}
+	#page2 header, #page2 footer{
+		grid-column-start: 1;
+		grid-column-end: 2;
+		font-size: 11px;
+	}
+	.boxInfo h2 {
+		font-size: 5vw;
+	}
+/***************** MOBILE STYLES PAGE 3 **************************/	
+	.billboardWrapper {
+		position: absolute;
+		top: 57%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		height: 50vh;
+		max-height: 1000px;
+		width: 70vw;
+	}
+	.billboard p {
+		font-size: 4vw;
+	}
+	.contactButtons {
+		position: absolute;
+		width: 90vw;
+		height: auto;
+		top: 4vh;
+		right: 2vw;
+	}
+	.pencil {
+		display: none;
+	}
+	.socialMediaLinks ul{
+		width: 240px;
+		right: -5%;
+		bottom: 3%;
+		transform: translate(0,0) scale(.8) ;
+	}
+	.table {
+		top: 50%;
+		height: 50%;
+	}
+	#page1 .scroller {
+		bottom: 20px;
+	}
+	#page3 .scroller {
+		top: auto;
+		bottom: 0;
+		left: 0;
+	}
 }
 </style> 
 </head>
@@ -1138,7 +1202,19 @@ figure:hover span.center:before{
 	<div id='page2'>
 		<header><h1>some of my recent c<span>o</span>de <i class="fas fa-code"></i></h1>
 		</header>
-		<div class='box box1'>
+		<div class='box'>
+			<div class='img img5'></div>
+			<div class='boxInfo'>
+				<h2>CSS Experiment - Menu Hover Effects</h2>
+				<p>collection of random button animations using the new CSS3 features.</p>
+			</div>
+			<a href='menuHoverEffects.html'><div class='viewButton'>View</div></a>
+			<span class='techIcons'>
+				<i class="fab fa-html5"></i>
+				<i class="fab fa-css3-alt"></i>
+			</span>
+		</div>
+		<div class='box'>
 			<div class='img img1'></div>
 			<div class='boxInfo'>
 				<h2>Film promo page</h2>
@@ -1151,11 +1227,11 @@ figure:hover span.center:before{
 				<i class="fab fa-js"></i>
 			</span>
 		</div>
-		<div class='box box2'>
+		<div class='box'>
 			<div class='img img2'></div>
 			<div class='boxInfo'>
 				<h2>Drawing APP</h2>
-				<p>You can combine any of 3 tools, 5 effects and 8 different brush shapes into colorful patterns. </p>
+				<p>You can combine any of 3 tools, 5 effects and 8 different brush shapes into colorful patterns. Heavy use of JavaScript on this one.</p>
 			</div>
 			<a href='draw.html'><div class='viewButton'>View</div></a>
 			<span class='techIcons'>
@@ -1164,7 +1240,7 @@ figure:hover span.center:before{
 				<i class="fab fa-js"></i>
 			</span>
 		</div>
-		<div class='box box3'>
+		<div class='box'>
 			<div class='img img3'></div>
 				<div class='boxInfo'>
 				<h2>3D book carousel</h2>
@@ -1177,7 +1253,7 @@ figure:hover span.center:before{
 				<i class="fab fa-js"></i>
 			</span>
 		</div>
-		<div class='box box4'>
+		<div class='box'>
 			<div class='img img4'></div>
 			<div class='boxInfo'>
 				<h2>3D cube</h2>
@@ -1190,20 +1266,7 @@ figure:hover span.center:before{
 				<i class="fab fa-js"></i>
 			</span>
 		</div>
-		<div class='box box5'>
-			<div class='img img5'></div>
-			<div class='boxInfo'>
-				<h2>Under Construction</h2>
-				<p>Product Layout Page - responsive desing changes depending on screen width</p>
-			</div>
-			<a href='bookproductpage.html'><div class='viewButton'>View</div></a>
-			<span class='techIcons'>
-				<i class="fab fa-html5"></i>
-				<i class="fab fa-css3-alt"></i>
-				<i class="fab fa-js"></i>
-			</span>
-		</div>
-		<div class='box box6'>
+		<div class='box'>
 			<div class='img img6'></div>
 				<div class='boxInfo'>
 				<h2>Social media Icons</h2>
@@ -1215,7 +1278,7 @@ figure:hover span.center:before{
 				<i class="fab fa-css3-alt"></i>
 			</span>
 		</div>
-		<footer>..everything here is created from scratch with pure JavaScript <i class="fab fa-js"></i>, CSS3 <i class="fab fa-css3-alt"></i> and HTML5 <i class="fab fa-html5"></i>. No frameworks/libraries have been used. I'm comfortable working with jQuery/Bootstrap etc. if required. Everything is fully responsive, CSS styles will change depending on device screen width.</footer>
+		<footer>..everything here is created from scratch with pure JavaScript <i class="fab fa-js"></i>, CSS3 <i class="fab fa-css3-alt"></i> and HTML5 <i class="fab fa-html5"></i>. No frameworks/libraries have been used. I'm comfortable working with jQuery/Bootstrap etc. if required. Everything is fully responsive, CSS styles will change depending on device screen width. Most of the SVG graphics is created with fontAwesome <i class="fab fa-font-awesome"></i></footer>
 	</div>
 <!------------------------------------- PAGE 3 ----------------------------------------->
 	<div id='page3'>
