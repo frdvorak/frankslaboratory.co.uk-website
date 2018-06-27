@@ -130,7 +130,7 @@ body {
 	letter-spacing: -3px;
 	line-height: 12vw;
 	opacity: 0;
-	animation: appear 5s forwards 7s;
+	animation: appear 5s forwards 1s;
 }
 #page1 h2 {
 	position: absolute;
@@ -143,12 +143,12 @@ body {
 	letter-spacing: -1px;
 	z-index:11;
 	opacity: 0;
-	animation: appear 5s forwards 8.5s;
+	animation: appear 5s forwards 2.5s;
 	background: radial-gradient(rgba(29,31,32,.2) 10%, rgba(29,31,32,0.4) 60%, rgba(29,31,32,0) 75%);
 }
 #page1 .frontPageLink a {
 	position: absolute;
-	left: 60px;
+	left: 20px;
 	bottom: 100px;
 	font-size: 45px;
 	transform: rotate(0deg);
@@ -158,7 +158,7 @@ body {
 	z-index: 200;
 }
 #page1 .frontPageLink a:nth-of-type(2){
-	left: 105px;
+	left: 65px;
 }
 	
 /**************** PAGE 1 TYPED TEXT **********************/
@@ -174,6 +174,8 @@ body {
 	font-family: consolas;
 	font-size: 20px;
 	color: white;
+	z-index: 100;
+	display: none;
 }
 @keyframes typeFirstLine {
 	0% 		{width: 3ch;}
@@ -198,6 +200,8 @@ body {
 	font-size: 20px;
 	width: 0ch;
 	color: white;
+	z-index: 100;
+	display: none;
 }
 @keyframes typeSecondLine {
 	0% 		{width: 0ch;}
@@ -211,11 +215,15 @@ body {
 }
 .active {
 	position: absolute;
-	left: 10%;
+	left: 15%;
 	top: 50%;
 	transform: translate(0,-50%);
-	width: 60vh;
+	width: 65vh;
 	z-index: 10;
+}
+.active.stegosaurus {
+	top: 40%;
+	width: 90vh;
 }
 .active path {
 	stroke: #fff;
@@ -860,7 +868,20 @@ figure:hover span.center:before{
 /**************************************************************************/
 /**************************************************************************/
 @media screen and (min-width: 1200px) {
+/********************** LARGE SCREENS (WIDE) PAGE 1************************/
+#page1 h1 {
+	animation: appear 5s forwards 7s;
+}
+#page1 h2 {
+	animation: appear 5s forwards 8.5s;
+}
 
+.firstTypedLine {
+	display: block;
+}
+.secondTypedLine {
+	display: block;
+}
 /********************** LARGE SCREENS (WIDE) PAGE 2************************/
 #page2 footer {
 	font-size: 16px;
@@ -918,8 +939,9 @@ figure:hover span.center:before{
 	opacity: 1;
 }
 .viewButtonDrawingApp {
-	display: block;
+		display: block;
 }
+
 }
 /**************************************************************************/
 /**************************************************************************/
@@ -1043,6 +1065,12 @@ figure:hover span.center:before{
 	.boxInfo h2 {
 		font-size: 5vw;
 	}
+	.boxInfo p {
+		font-size: 10px;
+	}
+	#page2 footer {
+		font-size: 10px;
+	}
 /***************** MOBILE STYLES PAGE 3 **************************/	
 	.billboardWrapper {
 		position: absolute;
@@ -1089,6 +1117,19 @@ figure:hover span.center:before{
 		left: auto;
 		bottom: 5px;
 	}
+}
+/**************************************************************************/
+/**************************************************************************/
+/********************* MOBILE LANDSCAPE *******************/
+/**************************************************************************/
+/**************************************************************************/
+@media screen and (max-height: 350px) {
+.firstTypedLine {
+	top: 10px;
+}
+.secondTypedLine {
+	top: 30px;
+}
 }
 </style> 
 </head>
@@ -1458,13 +1499,12 @@ contactButtons.forEach(item => item.addEventListener('click', changeBoard));
 const socialMediaButton1 = document.querySelector('.socialMediaLinks ul li:nth-child(1) a');
 const socialMediaButton2 = document.querySelector('.socialMediaLinks ul li:nth-child(2) a');
 const socialMediaButton3 = document.querySelector('.socialMediaLinks ul li:nth-child(3) a');
-const socialMediaButton4 = document.querySelector('.socialMediaLinks ul li:nth-child(4) a');
+
 let thisButton = 0;
 const makeWave = function(){
 	socialMediaButton1.classList.remove('flying');
 	socialMediaButton2.classList.remove('flying');
 	socialMediaButton3.classList.remove('flying');
-	socialMediaButton4.classList.remove('flying');
 	thisButton++;
 	if (thisButton > 35){
 		thisButton = 0;
@@ -1475,10 +1515,8 @@ const makeWave = function(){
 		socialMediaButton2.classList.add('flying');
 	} else if (thisButton == 3) {
 		socialMediaButton3.classList.add('flying');
-	} else if (thisButton == 4) {
-		socialMediaButton4.classList.add('flying');
-	}
-};
+	};
+}
 setInterval(makeWave, 400);
 
 
