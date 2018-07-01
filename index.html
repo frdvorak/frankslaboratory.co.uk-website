@@ -945,7 +945,7 @@ figure:hover span.center:before{
 }
 /**************************************************************************/
 /**************************************************************************/
-/********************* TABLET STYLES + MOBILE LANDSCAPE *******************/
+/********************* TABLET STYLES **************************************/
 /**************************************************************************/
 /**************************************************************************/
 @media screen and (max-width: 800px) {
@@ -1013,6 +1013,8 @@ figure:hover span.center:before{
 	}
 
 }
+
+/**************** TABLET STYLES PAGE 2 ************************/
 /**************************************************************************/
 /**************************************************************************/
 /******************** MOBILE STYLES (PORTRAIT ONLY) ***********************/
@@ -1021,6 +1023,9 @@ figure:hover span.center:before{
 @media screen and (max-width: 630px) and (orientation : portrait){
 
 /**************** MOBILE STYLES PAGE 1 **************************/
+.active {
+	left: 4%;
+}
 #page1 footer {
 	position: absolute;
 	left: 2%;
@@ -1120,7 +1125,7 @@ figure:hover span.center:before{
 }
 /**************************************************************************/
 /**************************************************************************/
-/********************* MOBILE LANDSCAPE *******************/
+/********************* MOBILE LANDSCAPE ***********************************/
 /**************************************************************************/
 /**************************************************************************/
 @media screen and (max-height: 350px) {
@@ -1129,6 +1134,13 @@ figure:hover span.center:before{
 }
 .secondTypedLine {
 	top: 30px;
+}
+.active {
+	top: 40%;
+	transform: translate(0,-50%);
+}
+.active.stegosaurus {
+	top: 35%;
 }
 }
 </style> 
@@ -1145,7 +1157,7 @@ figure:hover span.center:before{
 
 </footer>
 <div class='frontPageLink'>
-	<a href='#'><i class="fab fa-github-square"></i></a>
+	<a href='https://github.com/frdvorak'><i class="fab fa-github-square"></i></a>
 	<a href="mailto:frantisek.dvorak011@gmail.com?subject=Email from website"><i class="fas fa-envelope-square"></i></a> 
 </div>
 
@@ -1304,16 +1316,15 @@ figure:hover span.center:before{
 			</span>
 		</div>
 		<div class='box'>
-			<div class='img img1'></div>
-			<div class='boxInfo'>
-				<h2>Film promo page</h2>
-				<p>Single page promotional website for a film. Includes image slider.</p>
+			<div class='img img6'></div>
+				<div class='boxInfo'>
+				<h2>Hover effects on icons</h2>
+				<p>Random collection of effects on social media icons.</p>
 			</div>
-			<a href='avngrs.html'><div class='viewButton'>View</div></a>
+			<a href='socialmediaeffects.html'><div class='viewButton'>View</div></a>
 			<span class='techIcons'>
 				<i class="fab fa-html5"></i>
 				<i class="fab fa-css3-alt"></i>
-				<i class="fab fa-js"></i>
 			</span>
 		</div>
 		<div class='box'>
@@ -1329,6 +1340,20 @@ figure:hover span.center:before{
 				<i class="fab fa-js"></i>
 			</span>
 		</div>
+		<div class='box'>
+			<div class='img img1'></div>
+			<div class='boxInfo'>
+				<h2>Film promo page</h2>
+				<p>Single page promotional website for a film. Includes image slider.</p>
+			</div>
+			<a href='avngrs.html'><div class='viewButton'>View</div></a>
+			<span class='techIcons'>
+				<i class="fab fa-html5"></i>
+				<i class="fab fa-css3-alt"></i>
+				<i class="fab fa-js"></i>
+			</span>
+		</div>
+
 		<div class='box'>
 			<div class='img img3'></div>
 				<div class='boxInfo'>
@@ -1355,18 +1380,7 @@ figure:hover span.center:before{
 				<i class="fab fa-js"></i>
 			</span>
 		</div>
-		<div class='box'>
-			<div class='img img6'></div>
-				<div class='boxInfo'>
-				<h2>Hover effects on icons</h2>
-				<p>Random collection of effects on social media icons.</p>
-			</div>
-			<a href='socialmediaeffects.html'><div class='viewButton'>View</div></a>
-			<span class='techIcons'>
-				<i class="fab fa-html5"></i>
-				<i class="fab fa-css3-alt"></i>
-			</span>
-		</div>
+
 		<footer>..everything here is created from scratch with pure JavaScript <i class="fab fa-js"></i>, CSS3 <i class="fab fa-css3-alt"></i> and HTML5 <i class="fab fa-html5"></i>. No frameworks/libraries have been used. I'm comfortable working with jQuery/Bootstrap etc. if required. Everything is fully responsive, CSS styles will change depending on device screen width. Most of the SVG graphics is created with fontAwesome <i class="fab fa-font-awesome"></i></footer>
 	</div>
 <!------------------------------------- PAGE 3 ----------------------------------------->
@@ -1390,7 +1404,7 @@ figure:hover span.center:before{
 					<i class="fas fa-envelope"></i>
 				</div>
 				<div class='contactBoard contactGit'>
-					<p>Github profile - under construction</p>
+					<p><a href='https://github.com/frdvorak'>github.com/frdvorak</a></p>
 					<i class="fab fa-github"></i>
 				</div>
 			</div>
