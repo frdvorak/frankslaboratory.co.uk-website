@@ -318,6 +318,7 @@ body {
 	grid-row-gap: 7px;
 	background-color: #1d1f20;
 	min-height: 550px;
+	height: 120vh;
 }
 #page2 header {
 	position: relative;
@@ -363,6 +364,7 @@ body {
 	padding: 1%;
 	text-align: justify;
 }
+
 .box {
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -437,7 +439,7 @@ body {
 .img4 {background-image: url('images/preview_3dbox.png');}
 .img5 {background-image: url('images/preview_menuHoverEffects.png');}
 .img6 {background-image: url('images/preview_socialicons.png');}
-.img7 {background-image: url('images/preview_canvasparticles.png');}
+.img7 {background-image: url('images/preview_canvasparticles.gif');}
 
 .boxInfo {
 	position: absolute;
@@ -456,7 +458,7 @@ body {
 	transform: scale(1.5) translateX(0%);
 	width: 110%;
 	left: -5%;
-	font-size: 2.7vw;
+	font-size: 17px;
 	text-align: center;
 	transition-duration: .3s;
 	opacity: 1;
@@ -962,6 +964,25 @@ figure:hover span.center:before{
 /********************* TABLET STYLES **************************************/
 /**************************************************************************/
 /**************************************************************************/
+@media screen and (min-width: 800px) {
+#page2 .draw{
+	grid-row-start: 2;
+	grid-row-end: 4;
+	grid-column-start: 1;
+	grid-column-end: 2;
+}
+#page2 .canvasparticles{
+	grid-row-start: 3;
+	grid-row-end: 5;
+	grid-column-start: 3;
+	grid-column-end: 4;
+}
+}
+/**************************************************************************/
+/**************************************************************************/
+/********************* TABLET STYLES **************************************/
+/**************************************************************************/
+/**************************************************************************/
 @media screen and (max-width: 800px) {
 /**************** TABLET STYLES PAGE 2 ************************/
 	#page2 {
@@ -1292,20 +1313,20 @@ figure:hover span.center:before{
 				<h2>Hover effects on icons</h2>
 				<p>More CSS3 experiments, this time on social media icons. Will be adding more later.</p>
 			</div>
-			<a href='###' target="_blank"><div class='viewButton github'>GitHub!!</div></a>
+			<a href='https://github.com/frdvorak/socialmediaicons' target="_blank"><div class='viewButton github'>GitHub</div></a>
 			<a href='socialmediaeffects.html'><div class='viewButton'>View</div></a>
 			<span class='techIcons'>
 				<i class="fab fa-html5"></i>
 				<i class="fab fa-css3-alt"></i>
 			</span>
 		</div>
-		<div class='box'>
+		<div class='box draw'>
 			<div class='img img2'></div>
 			<div class='boxInfo'>
 				<h2>Drawing APP</h2>
-				<p>You can combine any of 3 available tools, 5 effects and 8 different brush shapes to create colorful patterns. Large screens only. </p>
+				<p>You can combine any of 3 available tools, 5 effects and 8 different brush shapes to create colourful patterns. Large screens only. Mouse required.</p>
 			</div>
-			<a href='###' target="_blank"><div class='viewButton github'>GitHub!!</div></a>
+			<a href='https://github.com/frdvorak/draw' target="_blank"><div class='viewButton github'>GitHub</div></a>
 			<a href='draw.html' class='viewButtonDrawingApp'><div class='viewButton'>View</div></a>
 			<span class='techIcons'>
 				<i class="fab fa-html5"></i>
@@ -1319,7 +1340,7 @@ figure:hover span.center:before{
 				<h2>Film promo page</h2>
 				<p>Single page promotional website for a film. Includes image slider.</p>
 			</div>
-			<a href='###' target="_blank"><div class='viewButton github'>GitHub!!</div></a>
+			<a href='https://github.com/frdvorak/filmpromowebsite' target="_blank"><div class='viewButton github'>GitHub</div></a>
 			<a href='avngrs.html'><div class='viewButton'>View</div></a>
 			<span class='techIcons'>
 				<i class="fab fa-html5"></i>
@@ -1348,7 +1369,7 @@ figure:hover span.center:before{
 				<h2>3D cube</h2>
 				<p>animated 3d cube, created using css transforms. User can change colour and rotation of the cube.</p>
 			</div>
-			<a href='###' target="_blank"><div class='viewButton github'>GitHub!!</div></a>
+			<a href='https://github.com/frdvorak/3Dcube' target="_blank"><div class='viewButton github'>GitHub</div></a>
 			<a href='3dcube.html'><div class='viewButton'>View</div></a>
 			<span class='techIcons'>
 				<i class="fab fa-html5"></i>
@@ -1356,7 +1377,7 @@ figure:hover span.center:before{
 				<i class="fab fa-js"></i>
 			</span>
 		</div>
-		<div class='box'>
+		<div class='box canvasparticles'>
 			<div class='img img7'></div>
 			<div class='boxInfo'>
 				<h2>Canvas particle effects</h2>
