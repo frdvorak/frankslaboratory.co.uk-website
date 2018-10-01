@@ -298,8 +298,23 @@ body {
 	min-height: 550px;
 	height: auto;
 }
+#page2 h2 {
+	color: black;
+}
+#page2 h1, #page2 p {
+	color: white;
+	text-align: left;
+}
 #page2 .reactBox {
-	
+	width: 100%;
+	display: grid;
+	grid-template-columns: auto auto auto;
+	grid-template-rows: auto;
+	grid-column-gap: 7px;
+	grid-row-gap: 7px;
+	min-height: 200px;
+	height:auto;
+	border: 5px solid blue;
 }
 #page2 .vanillaJsBox{
 	width: 100%;
@@ -311,7 +326,6 @@ body {
 	min-height: 550px;
 	height:auto;
 	border: 5px solid blue;
-
 }
 
 #page2 header {
@@ -342,12 +356,6 @@ body {
 	98%		{transform: translateY(0px) 	rotate(360deg);}
 	100%	{transform: translateY(0px) 	rotate(360deg);}
 }
-#page2 h2, #page2 p {
-	//color: white;
-	text-align: center;
-}
-
-
 
 .box {
 	background-size: cover;
@@ -956,8 +964,8 @@ figure:hover span.center:before{
 	grid-column-end: 2;
 }
 #page2 .canvasparticles{
-	grid-row-start: 3;
-	grid-row-end: 5;
+	grid-row-start: 1;
+	grid-row-end: 3;
 	grid-column-start: 3;
 	grid-column-end: 4;
 }
@@ -970,7 +978,7 @@ figure:hover span.center:before{
 @media screen and (max-width: 800px) {
 /**************** TABLET STYLES PAGE 2 ************************/
 	#page2 {
-		height: 40%;
+		height: auto;
 		grid-template-columns: auto auto;
 		grid-template-rows: 2% auto auto auto 15%;
 	}
