@@ -319,11 +319,11 @@ body {
 #page2 .vanillaJsBox{
 	width: 100%;
 	display: grid;
-	grid-template-columns: auto auto auto;
+	grid-template-columns:  auto auto auto;
 	grid-template-rows: auto auto auto;
 	grid-column-gap: 7px;
 	grid-row-gap: 7px;
-	min-height: 550px;
+	min-height: 250px;
 	height:auto;
 	border: 5px solid blue;
 }
@@ -364,6 +364,9 @@ body {
 	overflow: hidden;
 	position: relative;
 	transition: .4s;
+	width: 100%;
+	height: 200px;
+	
 }
 .box:before {
 	content: '';
@@ -434,7 +437,7 @@ body {
 .img7 {background-image: url('images/preview_canvasparticles.gif');}
 
 .react1 {background-image: url('images/preview_movie-search.jpg');}
-.react2 {background-image: url('images/preview_movie-search.jpg');}
+.react2 {background-image: url('images/preview_react-portfolio.jpg');}
 .react3 {background-image: url('images/preview_movie-search.jpg');}
 
 .boxInfo {
@@ -955,25 +958,7 @@ figure:hover span.center:before{
 }
 
 }
-/**************************************************************************/
-/**************************************************************************/
-/********************* TABLET STYLES **************************************/
-/**************************************************************************/
-/**************************************************************************/
-@media screen and (min-width: 800px) {
-#page2 .draw{
-	grid-row-start: 2;
-	grid-row-end: 4;
-	grid-column-start: 1;
-	grid-column-end: 2;
-}
-#page2 .canvasparticles{
-	grid-row-start: 1;
-	grid-row-end: 3;
-	grid-column-start: 3;
-	grid-column-end: 4;
-}
-}
+
 /**************************************************************************/
 /**************************************************************************/
 /********************* TABLET STYLES **************************************/
@@ -983,12 +968,20 @@ figure:hover span.center:before{
 /**************** TABLET STYLES PAGE 2 ************************/
 	#page2 {
 		height: auto;
-		grid-template-columns: auto auto;
-		grid-template-rows: 2% auto auto auto 15%;
+		
+	}
+	#page2 .reactBox {
+		grid-template-columns: auto;
+		grid-template-rows: auto;
+		
+	}
+	#page2 .vanillaJsBox{
+		grid-template-columns: auto;
+		grid-template-rows: auto;
+	
 	}
 	#page2 header, #page2 footer{
-		grid-column-start: 1;
-		grid-column-end: 3;
+		
 	}
 	.boxInfo h2 {
 		font-size: 14px;
@@ -1089,13 +1082,12 @@ figure:hover span.center:before{
 
 /**************** MOBILE STYLES PAGE 2 **************************/
 	#page2 {
-		height: 75%;
-		grid-template-columns: auto;
-		grid-template-rows: 2% auto auto auto auto auto auto 15%;
+		height: auto;
+	}
+	#page2 .reactBox{
+		grid-column: auto;
 	}
 	#page2 header, #page2 footer{
-		grid-column-start: 1;
-		grid-column-end: 2;
 		font-size: 12px;
 	}
 	.boxInfo h2 {
