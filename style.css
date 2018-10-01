@@ -1,0 +1,1163 @@
+* {opacity: 1; padding: 0; margin: 0;}
+
+body {
+	background-color: #1d1f20;
+	font-family: consolas;
+	//font-family: 'Cantora One', sans-serif;
+	transition: 1s;
+}
+
+#wrapper {
+	width: 100%;
+	height: 300vh;
+	transition: 1s;
+	//overflow: hidden;
+}
+#page1, #page2, #page3 {
+	width: 96%;
+	height: 100vh;
+	padding: 2%;
+	position: relative;
+	transition: 1s;
+}
+/********************************** SCROLLER **************************************/
+.scroller {
+	position: absolute;
+	bottom: 100px;
+	left: 50%;
+	transform: translate(-50%,0);
+	border: 2px solid #fff;
+	border-radius: 50%;
+	width:50px;
+	height: 50px;
+	text-align: center;
+	line-height: 75px;
+	overflow: hidden;
+	z-index: 200;
+	opacity: .6;
+	background: rgba(255,255,255,0);
+	transition-duration: 1s;
+}
+.scroller .fas {
+	color: #fff;
+	font-size: 40px;
+	margin: 0;
+	padding: 0;
+	animation: scrollerMoveAuto 10s linear infinite;
+	
+}
+.scroller:hover .fas {
+	animation: scrollerMoveHover 1s linear infinite;
+}
+.scroller:hover {
+	background: rgba(255,255,255,0.15);
+}
+@keyframes scrollerMoveAuto {
+	0% 		{transform: translateY(0); text-shadow: 0 -50px 0 #fff;}
+	1% 		{transform: translateY(0); text-shadow: 0 -10px 0 #fff;}
+	5% 		{transform: translateY(60px); text-shadow: 0 -10px 0 #fff;}
+	5.1% 	{transform: translateY(-60px); text-shadow: 0 0px 0 #fff;}
+	8% 		{transform: translateY(0); text-shadow: 0 10px 0px #fff;}
+	10%		{transform: translateY(0px); text-shadow: 0 50px 0 #fff;}
+	10.1% 	{transform: translateY(0); text-shadow: 0 -50px 0 #fff;}
+	11% 	{transform: translateY(0); text-shadow: 0 -10px 0 #fff;}
+	15% 	{transform: translateY(60px); text-shadow: 0 -10px 0 #fff;}
+	15.1% 	{transform: translateY(-60px); text-shadow: 0 0px 0 #fff;}
+	18% 	{transform: translateY(0); text-shadow: 0 10px 0px #fff;}
+	20%		{transform: translateY(0px); text-shadow: 0 50px 0 #fff;}
+	99.9%	{transform: translateY(0px); text-shadow: 0 50px 0 #fff;}
+	100% 	{transform: translateY(0); text-shadow: 0 -50px 0 #fff;}
+}
+@keyframes scrollerMoveHover {
+	0% 		{transform: translateY(0); text-shadow: 0 -50px 0 #fff;}
+	10% 	{transform: translateY(0); text-shadow: 0 -10px 0 #fff;}
+	50% 	{transform: translateY(60px); text-shadow: 0 -10px 0 #fff;}
+	51% 	{transform: translateY(-60px); text-shadow: 0 0px 0 #fff;}
+	80% 	{transform: translateY(0); text-shadow: 0 10px 0px #fff;}
+	100%	{transform: translateY(0px); text-shadow: 0 50px 0 #fff;}
+}
+#page1 .scroller {
+
+}
+#page3 .scroller {
+	transform: translate(-50%,0) rotate(180deg);
+	top: 9%;
+}
+/********************************** SCROLLER END **********************************/
+
+/************************************ PAGE 1 **************************************/
+#page1 {
+  overflow: hidden;
+}
+
+#page1 h1, #page1 h2, #page1 h3 {
+	color: white;
+	z-index: 1;
+	padding: 3%;
+}
+#page1 footer {
+	position: absolute;
+	right: 3%;
+	bottom: 20%;
+	width: auto;
+	height: auto;
+	z-index: 100;
+}
+@keyframes appear {
+	0% {opacity: 0;}
+	100% {opacity: 1;}
+}
+#page1 h1 {
+	position: relative;
+	right: 0;
+	top: 0;
+	float: right;
+	font-family: consolas;
+	font-size: 9vw;
+	width: auto;
+	-webkit-text-stroke: .5px white;
+   	color: #1d1f20;
+	z-index: 12;
+	font-weight: 100;
+	letter-spacing: -3px;
+	line-height: 12vw;
+	opacity: 0;
+	animation: appear 5s forwards 1s;
+}
+#page1 h2 {
+	position: absolute;
+	font-family: consolas;
+	top: 8%;
+	right: 3%;
+	width: auto;
+	font-size: 2.1vw;
+	margin-bottom: 2vh;
+	letter-spacing: -1px;
+	z-index:11;
+	opacity: 0;
+	animation: appear 5s forwards 2.5s;
+	background: radial-gradient(rgba(29,31,32,.2) 10%, rgba(29,31,32,0.4) 60%, rgba(29,31,32,0) 75%);
+}
+#page1 .frontPageLink a {
+	position: absolute;
+	left: 20px;
+	bottom: 100px;
+	font-size: 45px;
+	transform: rotate(0deg);
+	color: #fff;
+	opacity: 1;
+	transition-duration: 1s;
+	z-index: 200;
+}
+#page1 .frontPageLink a:nth-of-type(2){
+	left: 65px;
+}
+	
+/**************** PAGE 1 TYPED TEXT **********************/
+.firstTypedLine {
+	position: absolute;
+	top: 60px;
+	left: 60px;
+	width: 3ch;
+	height: auto;
+	animation: typeFirstLine 1.5s steps(17) forwards 3s, blink 1s 6;
+	white-space: nowrap;
+	overflow: hidden;
+	font-family: consolas;
+	font-size: 20px;
+	color: white;
+	z-index: 100;
+	display: none;
+}
+@keyframes typeFirstLine {
+	0% 		{width: 3ch;}
+	100%	{width: 20ch;}
+}
+@keyframes blink {
+	0% 		{border-right: 4px solid white;}
+	49%		{border-right: 4px solid white;}
+	50%		{border-right: 0px solid white;}
+	100%	{border-right: 0px solid white;}
+}
+.secondTypedLine {
+	position: absolute;
+	top: 80px;
+	left: 60px;
+	width: 0ch;
+	height: auto;
+	animation: typeSecondLine 1.5s steps(16) forwards 5.8s, blink 1s infinite forwards 5.5s;
+	white-space: nowrap;
+	overflow: hidden;
+	font-family: consolas;
+	font-size: 20px;
+	width: 0ch;
+	color: white;
+	z-index: 100;
+	display: none;
+}
+@keyframes typeSecondLine {
+	0% 		{width: 0ch;}
+	100%	{width: 16ch;}
+}
+/******************* PAGE 1 TYPED TEXT END **************************/
+.board {
+	position: relative;
+	transition: 1s cubic-bezier(1,.11,1,1.23);
+	width: 100%;
+}
+.active {
+	position: absolute;
+	left: 15%;
+	top: 50%;
+	transform: translate(0,-50%);
+	width: 65vh;
+	z-index: 10;
+}
+.active.stegosaurus {
+	top: 40%;
+	width: 90vh;
+}
+.active path {
+	stroke: #fff;
+	fill:  #1d1f20;
+	stroke-dasharray: 3990;
+	stroke-dashoffset: 3995;
+	animation: drawImage 6s linear forwards;
+}
+.next path {
+	stroke: #1d1f20;
+	fill:  white;
+}
+.previous path {
+	stroke: #1d1f20;
+	fill:  white;
+}
+.next {
+	position: absolute;
+	left: 95%;
+	top: 10%;
+	transform: translate(-50%,-50%) rotate(-18deg);
+	width: 30%;
+	z-index: 9;
+}
+.previous {
+	position: absolute;
+	left: 110%;
+	top: -5%;
+	transform: translate(-50%,-50%) rotate(-18deg);
+	width: 5%;
+	z-index: 8;
+}
+@keyframes drawImage {
+	0% {
+		stroke-dashoffset: 3995;
+	}
+	70% {
+		stroke: white;
+		fill:  #1d1f20;
+		stroke-dashoffset: 0;
+	}
+	100% {
+		stroke: #1d1f20;
+		fill: white;
+		stroke-dashoffset: 0;
+	}
+}
+#create {
+	padding: 2%;
+	position: absolute;
+	width: 50%;
+	right: 0;
+	bottom: 0;
+}
+#create path {
+	stroke: #fff;
+	fill:  #1d1f20;
+	stroke-dasharray: 390;
+	stroke-dashoffset: 390;
+	animation: drawCreate 5s linear forwards;
+}
+@keyframes drawCreate {
+	0% {
+		stroke-dashoffset: 390;
+	}
+
+	70% {
+		fill:  #1d1f20;
+		stroke-dashoffset: 0;
+	}
+	100% {
+		fill: white;
+		stroke-dashoffset: 0;
+	}
+}
+
+/************************************ PAGE 2 **************************************/
+#page2 {
+	display: grid;
+	grid-template-columns: auto auto auto;
+	grid-template-rows: 8% auto auto 20%;
+	grid-column-gap: 7px;
+	grid-row-gap: 7px;
+	background-color: #1d1f20;
+	min-height: 550px;
+	height: 120vh;
+}
+#page2 header {
+	position: relative;
+	grid-column-start: 1;
+	grid-column-end: 4;
+	border-bottom: 1px solid white;
+}
+#page2 header h1{
+	position: absolute;
+	bottom: -4px;
+	right: 0;
+	color: white;
+	font-size: 15px;
+	white-space: nowrap;
+	padding: 1%;
+}
+#page2 header h1 span{
+	display: inline-block;
+	color: white;
+	transform: translateY(70px) 	rotate(0deg);
+	animation: jump 5s alternate infinite;
+}
+@keyframes jump {
+	0%		{transform: translateY(0px) 	rotate(0deg);}
+	94%		{transform: translateY(0px) 	rotate(0deg);}
+	96%		{transform: translateY(-15px) 	rotate(180deg);}
+	98%		{transform: translateY(0px) 	rotate(360deg);}
+	100%	{transform: translateY(0px) 	rotate(360deg);}
+}
+#page2 h2, #page2 p {
+	//color: white;
+	text-align: center;
+}
+
+#page2 footer {
+	position: relative;
+	grid-column-start: 1;
+	grid-column-end: 4;
+	border-top: 1px solid white;
+	letter-spacing: 0px;
+	color: white;
+	font-size: 14px;
+	padding: 1%;
+	text-align: justify;
+}
+
+.box {
+	background-size: cover;
+	background-repeat: no-repeat;
+	opacity: 1;
+	overflow: hidden;
+	position: relative;
+	transition: .4s;
+}
+.box:before {
+	content: '';
+	position: absolute;
+	width: 0%;
+	height: 90%;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border-bottom: 1px solid white;
+	border-top: 1px solid white;
+	z-index: 1;
+	transition: .4s;
+}
+.box:hover:before {
+	width: 90%;
+}
+.box:after {
+	content: '';
+	position: absolute;
+	width: 90%;
+	height: 0%;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border-left: 1px solid white;
+	border-right: 1px solid white;
+	z-index: 1;
+	transition: .4s;
+}
+.box:hover:after {
+	height: 90%;
+}
+.box:hover .img {
+	transform: rotate(15deg) scale(1.5);
+	opacity: .2;
+}
+.box:hover .boxInfo {
+	opacity: 1;
+}
+.box:hover .boxInfo h2{
+	transform:  scale(1) translateX(0%);
+	opacity: 1;
+}
+.box:hover .boxInfo p{
+	transform:  scale(1) translateX(0%);
+	opacity: 1;
+}
+.box:hover .viewButton {
+	//box-shadow: inset 2px -2px 3px #000000;
+	opacity: 1;
+}
+.box:hover .techIcons {
+	opacity: 1;
+}
+.img {
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	transition: 0.5s;
+}
+.img1 {background-image: url('images/preview_avengers.png');}
+.img2 {background-image: url('images/preview_draw.png');}
+.img3 {background-image: url('images/preview_bookcarousel.png');}
+.img4 {background-image: url('images/preview_3dbox.png');}
+.img5 {background-image: url('images/preview_menuHoverEffects.png');}
+.img6 {background-image: url('images/preview_socialicons.png');}
+.img7 {background-image: url('images/preview_canvasparticles.gif');}
+
+.boxInfo {
+	position: absolute;
+	width: 85%;
+	height: auto;
+	top: 40%;
+	left: 50%;
+	z-index: 100;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	opacity: 0;
+	transition: .5s;
+}
+
+.boxInfo h2 {
+	transform: scale(1.5) translateX(0%);
+	width: 110%;
+	left: -5%;
+	font-size: 17px;
+	text-align: center;
+	transition-duration: .3s;
+	opacity: 1;
+	display: block;
+	//border: 1px solid white;
+	position: relative;
+	background: #fff;
+	color: rgba(0,0,0,.8);
+}
+
+.boxInfo p {
+	transform: scale(.6) translateX(0%);
+	width: 100%;
+	font-size: 15px;
+	text-align: left;
+	transition-duration: .3s;
+	opacity: 0;
+	color: #fff;
+	margin-top: 6px;
+	letter-spacing: -0.2px;
+}
+.viewButton {
+	display: block;
+	position: absolute;
+	bottom: 10%;
+	right: 35px;
+	width: 45px;
+	height: 20px;
+	line-height: 20px;
+	//border-radius: 5px;
+	//background-color: #d6d6d6;
+	color: #d6d6d6;
+	font-size: 12px;
+	font-weight:900;
+	transition-duration: .5s;
+	opacity: 0;
+	text-align: center;
+	z-index: 100;
+	
+}
+.viewButton.github {
+	width: 55px;
+	right: 90px;
+}
+.viewButton:hover {
+	background-color: #d6d6d6;
+	color: rgba(1,1,1,.8);
+}
+.viewButton:before {
+	content: '';
+	position:absolute;
+	bottom:2px;
+	left:2px;
+	width: 8px;
+	height: 8px;
+	border: 1px solid #d6d6d6;
+	border-width: 0 0 2px 2px;
+	transition: .3s;
+	opacity: 1;
+}
+.viewButton:after {
+	content: '';
+	position:absolute;
+	top: 2px;
+	right: 2px;
+	width: 8px;
+	height: 8px;
+	border: 2px solid #d6d6d6;
+	border-width: 2px 2px 0 0;
+	transition: .3s;
+	opacity: 1;
+}
+.box:hover .viewButton:before {
+	bottom:0px;
+	left:0px;
+}
+.box:hover .viewButton:after {
+	top: 0px;
+	right: 0px;
+}
+.box .viewButton:hover:after {
+	top: -4px;
+	right: -4px;
+}
+.box .viewButton:hover:before {
+	bottom: -4px;
+	left: -4px;
+}
+.techIcons {
+	color: white;
+	font-family: fontAwesome;
+	width: auto;
+	height: auto;
+	position: absolute;
+	bottom: 10%;
+	left: 10%;
+	opacity: 0;
+	transition-duration: .5s;
+}
+.techIcons i{
+	display: block;
+	float: left;
+	text-decoration: none;
+	font-size: 15px;
+	margin-right: 2px;
+}
+.viewButtonDrawingApp {
+	display: none;
+}
+/************************************ PAGE 3 **************************************/
+#page3 {
+  overflow: hidden;
+
+}
+#page3 a {
+	color: white;
+	text-decoration: none;
+}
+/*********************PAGE 3 - BILLBOARD********************/
+.billboardWrapper {
+	position: absolute;
+	top: 60%;
+	left: 15%;
+	width: 30vw;
+	height: 50vh;
+	max-width: 350px;
+	max-height: 350px;
+	transform: translate(0, -50%);
+}
+.billboard {
+	position: relative;
+	top: 0px;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	min-width: 160px;
+	max-width: 350px;
+	max-height: 350px;
+	background: linear-gradient(-40deg,#30302d, #51514c);
+	box-shadow: inset -4px -15px 40px rgba(0,0,0,.5); 
+	box-sizing: border-box;
+	transform: translate(0, 0) skewY(-10deg);
+	z-index: 0;
+}
+.billboardShadow {
+	position: relative;
+	left: 0%;
+	top: -15%;
+	width: 160%;
+	height: 25%;
+	max-width: 370px;
+	max-height: 370px;
+	background: rgba(0,0,0,.5);
+	transform: translate(0, 0) skewY(-10deg);
+	border-radius: 0 0 10% 10%;
+	z-index: -1;
+	filter: blur(14px);
+	transition: 1s;
+}
+.billboard:before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: -3vw;
+	width: 3vw;
+	height: 100%;
+	background: #676862;
+	transform-origin: right bottom;
+	transform: skewY(45deg);
+}
+.billboard:after {
+	content: '';
+	position: absolute;
+	top: -3vw;
+	left: 0;
+	width: 100%;
+	height: 3vw;
+	background: #3f3f3b;
+	transform-origin: bottom left;
+	transform: skewX(45deg);
+}
+.billboard h3 {
+	display: block;
+	position: absolute;
+	width: 100%;
+	text-align: center;
+	background: #6c60b2;
+	color: white;
+	margin: 3vw 0 0;
+	padding: .5vw 0;
+	font-size: 15px;
+	text-transform: uppercase;
+	text-shadow: -2px 2px 10px rgba(0,0,0,.5);
+}
+.billboard h3:before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: -3vw;
+	width: 3vw;
+	height: 100%;
+	background: #7d6fce;
+	transform-origin: top right;
+	transform: skewY(45deg);
+}
+.contactEmail a{
+	font-size: 13px;
+}
+.contactBoard {
+	opacity: 0;
+	transition: .5s;
+}
+.contactBoard i {
+	display: block;
+	font-size: 100px;
+	opacity: .2;
+	color: white;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 9;
+}
+.contactBoard p {
+	width: 100%;
+	position: absolute;
+	top: 50%;
+	transform: translate(0, -50%);
+	text-align: center;
+	z-index: 10;
+	color: white;
+	font-size: 2.1vw;
+}
+.thanksForVisit {
+	opacity: 1;
+}
+
+/*********************PAGE 3 - SOCIAL MEDIA LINKS******************/
+
+.socialMediaLinks ul{
+	position: absolute;
+	bottom: 5vh;
+	right: 2vw;
+	display: flex;
+	//transform: scale(.5);
+}
+.socialMediaLinks ul li{
+	list-style: none;
+	margin: 0 20px;
+}
+.socialMediaLinks ul li a .fab{
+	font-size: 20px;
+	color: white;
+	line-height: 40px;
+	transition: .5s;
+}
+
+.socialMediaLinks ul li a{
+	position: relative;
+	display: block;
+	width: 40px;
+	height: 40px;
+	background: linear-gradient(to left, #30302d, #51514c);
+	text-align: center;
+	transform: perspective(1000px) rotate(-30deg) skew(25deg) translate(0,0);
+	transition: .5s;
+	box-shadow: -10px 15px 5px rgba(0,0,0,.5),
+				inset -5px 5px 10px rgba(255,255,255,0);
+		;
+}
+.socialMediaLinks ul li .flying {
+	transform: perspective(1000px) rotate(-30deg) skew(25deg) translate(10px,-10px);
+	box-shadow: -25px 25px 15px rgba(0,0,0,.5),
+				inset -25px 25px 10px rgba(255,255,255,0);
+}
+.socialMediaLinks ul li a:before{
+	content: '';
+	position: absolute;
+	top: 5px;
+	left: -10px;
+	height: 100%;
+	width: 10px;
+	background: #676862;;
+	transition: .5s;
+	transform: rotate(0deg) skewY(-45deg)
+}
+.socialMediaLinks ul li a:after{
+	content: '';
+	position: absolute;
+	bottom: -10px;
+	left: -5px;
+	height: 10px;
+	width: 100%;
+	background: #272825;
+	transition: .5s;
+	transform: rotate(0deg) skewX(-45deg)
+}
+.socialMediaLinks ul li a:hover {
+	transform: perspective(1000px) rotate(-30deg) skew(25deg) translate(10px,-10px);
+	box-shadow: -25px 35px 15px rgba(0,0,0,.5),
+				inset 35px 35px 30px rgba(255,255,255,.1);
+	;
+}
+
+/*********************PAGE 3 - CONTACT BUTTONS *******************/
+.contactButtons {
+	position: absolute;
+	width: 50vw;
+	height: auto;
+	top: 20vh;
+	right: 0vw;
+}
+.contactButtons figure{
+	display: block;
+	margin: 0 auto;
+	margin-top: 4vh;
+	position: relative;
+	width: 20vw;
+	height: 4vw;
+	min-width: 150px;
+	text-align: center;
+	margin-top: 3vh;
+	line-height: 4vw;
+	transform-style: preserve-3d;
+	perspective: 1000px;
+	transform-origin: center center;
+}
+.contactButton span{
+	position: absolute;
+	background: #262626;
+	width: 100%;
+	height: 100%;
+	display: block;
+	text-align: center;
+	line-height: 4vw;
+	font-size: 12px;
+	background: rgba(255,255,255,.05);
+	transform-style: preserve-3d;
+	backface-visibility: hidden;
+	border-right: 30px;
+	border-radius: 30px;
+	color: #fff;
+	transition: 1s;
+}
+
+span.front{
+	transform: rotateX(0deg) translateZ(2vw);
+}
+figure:hover span.front{
+	transform: rotateX(180deg) translateZ(2vw);
+
+	
+}
+span.back{
+	transform: rotateX(-180deg) translateZ(2vw);
+	box-shadow: 10px 10px 20px rgba(0,0,0,.2);
+}
+figure:hover span.back{
+	transform: rotateX(0deg) translateZ(2vw);
+}
+span.center{
+	background: linear-gradient(to left, #3f3f3b, #676862);
+	box-shadow: inset 2px -2px 5px rgba(0,0,0,.4),
+				inset -2px 5px 5px rgba(255,255,255,.3),
+				10px 10px 20px rgba(0,0,0,.2);
+}
+figure:hover span.center{
+	transform: rotateX(-180deg);
+	box-shadow: inset 0px -40px 10px rgba(0,0,0,.6),
+				inset 0px 65px 20px rgba(255,255,255,.6)
+				;
+}
+span.center:before{
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(to left, #3f3f3b, #676862);
+	border-radius: 30px;
+	transform: translateZ(-1px);
+	box-shadow: inset 20px 80px 60px rgba(0,0,0,.6),
+				inset -10px -25px 5px rgba(255,255,255,.1);
+	transition: 1s;
+}
+
+figure:hover span.center:before{
+	transform: rotateX(0deg);
+	box-shadow: inset 2px -2px 5px rgba(0,0,0,.6),
+				inset -2px -5px 5px rgba(255,255,255,.3);
+}
+.contactButton:nth-child(2) span.back {
+	font-size: 10px;
+	text-transform: lowercase;
+}
+.pencil {
+	width: 14vw;
+	max-width: 100px;
+	height: auto;
+	position: absolute;
+	bottom: 0;
+	left: 5%;
+	transform: translate(0, 0);
+	z-index: 100;
+}
+.table {
+	position: absolute;
+	top: 70%;
+	left: -10%;
+	width: 120%;
+	height: 32%;
+	
+	background: linear-gradient(to right top,rgb(101, 102, 96)1%,rgb(25, 25, 22));
+	opacity: 1;
+	z-index: -100;
+	box-shadow: 0px -50px 50px rgba(20,20,20,1),
+				inset 0px 50px 50px rgba(25,25,22,.51);
+}
+/**************************************************************************/
+/**************************************************************************/
+/********************** LARGE SCREENS (WIDE) ******************************/
+/**************************************************************************/
+/**************************************************************************/
+@media screen and (min-width: 1200px) {
+/********************** LARGE SCREENS (WIDE) PAGE 1************************/
+#page1 h1 {
+	animation: appear 5s forwards 7s;
+}
+#page1 h2 {
+	animation: appear 5s forwards 8.5s;
+}
+
+.firstTypedLine {
+	display: block;
+}
+.secondTypedLine {
+	display: block;
+}
+/********************** LARGE SCREENS (WIDE) PAGE 2************************/
+#page2 footer {
+	font-size: 16px;
+}
+/********************** LARGE SCREENS (WIDE) PAGE 3************************/
+.contactButton span{
+	font-size: 20px;
+}
+.contactButton:nth-child(2) span.back {
+	font-size: 15px;
+}
+
+.socialMediaLinks ul{
+	transform: translate(-60%, -60%) scale(2);
+}
+.billboardWrapper {
+	top: 60%;
+	left: 15%;
+	max-width: 550px;
+	max-height: 550px;
+}
+.billboard {
+	max-width: 550px;
+	max-height: 550px;
+}
+.billboardShadow {
+	max-width: 670px;
+	max-height: 670px;
+}
+.billboard:before {
+	left: -1vw;
+	width: 1vw;
+}
+.billboard:after {
+	top: -1vw;
+	height: 1vw;
+}
+.billboard h3:before {
+
+	left: -1vw;
+	width: 1vw;
+
+}
+.contactBoard {
+	opacity: 0;
+	transition: .5s;
+}
+.contactBoard i {
+	font-size: 150px;
+}
+.contactBoard p {
+	font-size: 30px;
+}
+.thanksForVisit {
+	opacity: 1;
+}
+.viewButtonDrawingApp {
+		display: block;
+}
+
+}
+/**************************************************************************/
+/**************************************************************************/
+/********************* TABLET STYLES **************************************/
+/**************************************************************************/
+/**************************************************************************/
+@media screen and (min-width: 800px) {
+#page2 .draw{
+	grid-row-start: 2;
+	grid-row-end: 4;
+	grid-column-start: 1;
+	grid-column-end: 2;
+}
+#page2 .canvasparticles{
+	grid-row-start: 3;
+	grid-row-end: 5;
+	grid-column-start: 3;
+	grid-column-end: 4;
+}
+}
+/**************************************************************************/
+/**************************************************************************/
+/********************* TABLET STYLES **************************************/
+/**************************************************************************/
+/**************************************************************************/
+@media screen and (max-width: 800px) {
+/**************** TABLET STYLES PAGE 2 ************************/
+	#page2 {
+		height: 40%;
+		grid-template-columns: auto auto;
+		grid-template-rows: 2% auto auto auto 15%;
+	}
+	#page2 header, #page2 footer{
+		grid-column-start: 1;
+		grid-column-end: 3;
+	}
+	.boxInfo h2 {
+		font-size: 14px;
+	}
+
+/*************** TABLET STYLES PAGE 3 **************************/
+	.contactButtons {
+		position: absolute;
+		width: 40vw;
+		height: auto;
+		top: 4vw;
+		right: 2vw;
+	}
+	.billboard p {
+		font-size: 3vw;
+	}
+	.contactButtons figure{
+		margin-top: 1.5vh;
+		width: 100%;
+		height: 8vh;
+	}
+	.contactButton span {
+		line-height: 8vh;
+	}
+	.billboardWrapper {
+		position: absolute;
+		top: 52%;
+		left: 5%;
+		transform: translate(0, -50%);
+		height: 50vh;
+		max-height: 1000px;
+		width: 70vw;
+	}
+	.billboard {
+		max-height: 1000px;
+	}
+	.table {
+		top: 50%;
+		height: 50%;
+	}
+	.pencil {
+		left: 1vw;
+		width: 27vw;
+		max-width: 100px;
+	}
+	#page1 .scroller {
+		transform: translate(-50%,0) scale(0.8);
+	}
+	#page3 .scroller {
+		top: 5vw;
+		left: 1vw;
+		transform: translate(0,0) rotate(-180deg) scale(0.8);
+	}
+
+}
+
+/**************** TABLET STYLES PAGE 2 ************************/
+/**************************************************************************/
+/**************************************************************************/
+/******************** MOBILE STYLES (PORTRAIT ONLY) ***********************/
+/**************************************************************************/
+/**************************************************************************/
+@media screen and (max-width: 630px) and (orientation : portrait){
+
+/**************** MOBILE STYLES PAGE 1 **************************/
+.active {
+	left: 4%;
+}
+#page1 footer {
+	position: absolute;
+	left: 2%;
+	top: 2%;
+	width: auto;
+	height: auto;
+	z-index: 100;
+}
+#page1 h1 {
+	font-size: 18vw;
+	left: 0;
+	top: 2%;
+	float: left;
+	animation: appear 5s forwards .5s;
+}
+#page1 h2 {
+	font-size:5vw;
+	top: -1%;
+	left: 35%;
+	animation: appear 5s forwards 1.5s;
+	background: none;
+}
+.firstTypedLine, .secondTypedLine {
+	display: none;
+}
+#page1 .frontPageLink a {
+	bottom: 69px;
+
+}
+
+/**************** MOBILE STYLES PAGE 2 **************************/
+	#page2 {
+		height: 75%;
+		grid-template-columns: auto;
+		grid-template-rows: 2% auto auto auto auto auto auto 15%;
+	}
+	#page2 header, #page2 footer{
+		grid-column-start: 1;
+		grid-column-end: 2;
+		font-size: 12px;
+	}
+	.boxInfo h2 {
+		font-size: 5vw;
+	}
+	.boxInfo p {
+		font-size: 10px;
+	}
+	#page2 footer {
+		font-size: 10px;
+	}
+/***************** MOBILE STYLES PAGE 3 **************************/	
+	.billboardWrapper {
+		position: absolute;
+		top: 57%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		height: 50vh;
+		max-height: 1000px;
+		width: 70vw;
+	}
+	.billboard p {
+		font-size: 4vw;
+	}
+	.contactButtons {
+		position: absolute;
+		width: 90vw;
+		height: auto;
+		top: 4vh;
+		right: 2vw;
+	}
+	.pencil {
+		display: none;
+	}
+	.socialMediaLinks ul{
+		width: 240px;
+		right: -3%;
+		bottom: 20px;
+		transform: translate(0,0) scale(.85) ;
+	}
+	.table {
+		top: 50%;
+		height: 50%;
+	}
+	#page1 .scroller {
+		bottom: 70px;
+		right: 10px;
+		left: auto;
+		transform: translate(0,0) scale(0.8);
+		
+
+	}
+	#page3 .scroller {
+		top: auto;
+		left: auto;
+		bottom: 5px;
+	}
+}
+/**************************************************************************/
+/**************************************************************************/
+/********************* MOBILE LANDSCAPE ***********************************/
+/**************************************************************************/
+/**************************************************************************/
+@media screen and (max-height: 350px) {
+.firstTypedLine {
+	top: 10px;
+}
+.secondTypedLine {
+	top: 30px;
+}
+.active {
+	top: 40%;
+	transform: translate(0,-50%);
+}
+.active.stegosaurus {
+	top: 35%;
+}
+}
