@@ -433,6 +433,10 @@ body {
 .img6 {background-image: url('images/preview_socialicons.png');}
 .img7 {background-image: url('images/preview_canvasparticles.gif');}
 
+.react1 {background-image: url('images/preview_movie-search.jpg');}
+.react2 {background-image: url('images/preview_movie-search.jpg');}
+.react3 {background-image: url('images/preview_movie-search.jpg');}
+
 .boxInfo {
 	position: absolute;
 	width: 85%;
