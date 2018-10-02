@@ -138,6 +138,20 @@ body {
 	animation: appear 5s forwards 2.5s;
 	background: radial-gradient(rgba(29,31,32,.2) 10%, rgba(29,31,32,0.4) 60%, rgba(29,31,32,0) 75%);
 }
+.welcomeMessage {
+	display: block;
+	width: 80%;
+	color: #fff;
+	//border: 1px solid white;
+	font-size: 13px;
+	z-index: 500;
+	background: rgba(0,0,0,0.2);
+	padding: 5px;
+	//text-align: justify;
+}
+.welcomeMessage a{
+	color: #fff;
+}
 #page1 .frontPageLink a {
 	position: absolute;
 	left: 20px;
@@ -156,7 +170,7 @@ body {
 /**************** PAGE 1 TYPED TEXT **********************/
 .firstTypedLine {
 	position: absolute;
-	top: 60px;
+	top: 100px;
 	left: 60px;
 	width: 3ch;
 	height: auto;
@@ -181,7 +195,7 @@ body {
 }
 .secondTypedLine {
 	position: absolute;
-	top: 80px;
+	top: 120px;
 	left: 60px;
 	width: 0ch;
 	height: auto;
@@ -320,19 +334,17 @@ body {
 	grid-column-gap: 7px;
 	grid-row-gap: 7px;
 	min-height: 200px;
-	height:auto;
 	margin-bottom: 20px;
+
 }
-#page2 .vanillaJsBox{
+#page2 .vanillaJsBox{.
 	width: 100%;
 	display: grid;
 	grid-template-columns:  auto auto auto;
 	grid-template-rows: auto auto auto;
 	grid-column-gap: 7px;
 	grid-row-gap: 7px;
-	min-height: 250px;
-	height:auto;
-
+	min-height: 600px;
 }
 
 #page2 header {
@@ -372,7 +384,7 @@ body {
 	position: relative;
 	transition: .4s;
 	width: 100%;
-	height: 200px;
+	//height: 200px;
 	
 }
 .box:before {
@@ -910,6 +922,12 @@ figure:hover span.center:before{
 #page2 footer {
 	font-size: 16px;
 }
+#page2 .reactBox {
+	min-height: 250px;
+}
+#page2 .vanillaJsBox{
+	min-height: 700px;
+}
 /********************** LARGE SCREENS (WIDE) PAGE 3************************/
 .contactButton span{
 	font-size: 20px;
@@ -977,20 +995,20 @@ figure:hover span.center:before{
 /**************** TABLET STYLES PAGE 2 ************************/
 	#page2 {
 		height: auto;
-		
 	}
 	#page2 .reactBox {
-		grid-template-columns: auto;
+		min-height: 300px;
+	}
+	#page2 .reactBox div:nth-child(1){
+		grid-row-start: span 2;
+	}
+	#page2 .reactBox {
+		grid-template-columns: auto auto;
 		grid-template-rows: auto;
-		
 	}
 	#page2 .vanillaJsBox{
-		grid-template-columns: auto;
+		grid-template-columns: auto auto;
 		grid-template-rows: auto;
-	
-	}
-	#page2 header, #page2 footer{
-		
 	}
 	.boxInfo h2 {
 		font-size: 14px;
@@ -1081,6 +1099,13 @@ figure:hover span.center:before{
 	animation: appear 5s forwards 1.5s;
 	background: none;
 }
+#page1 .welcomeMessage {
+	position: absolute;
+	width: 92%;
+	top: auto;
+	bottom: 145px;
+	text-align: justify;
+}
 .firstTypedLine, .secondTypedLine {
 	display: none;
 }
@@ -1096,8 +1121,19 @@ figure:hover span.center:before{
 	.info-p {
 		font-size: 12px;
 	}
-	#page2 .reactBox{
-		grid-column: auto;
+	#page2 .reactBox {
+		grid-template-columns: auto;
+		grid-template-rows: auto;
+		min-height: 500px;
+		
+	}
+	#page2 .reactBox div:nth-child(1){
+		grid-row-start: span 1;
+	}
+	#page2 .vanillaJsBox{
+		grid-template-columns: auto;
+		grid-template-rows: auto;
+		min-height: 1000px;
 	}
 	#page2 header, #page2 footer{
 		font-size: 12px;
