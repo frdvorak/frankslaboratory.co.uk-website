@@ -38,6 +38,7 @@ body {
 	background: rgba(255,255,255,0);
 	transition-duration: 1s;
 }
+
 .scroller .fas {
 	color: #fff;
 	font-size: 40px;
@@ -75,6 +76,9 @@ body {
 	51% 	{transform: translateY(-60px); text-shadow: 0 0px 0 #fff;}
 	80% 	{transform: translateY(0); text-shadow: 0 10px 0px #fff;}
 	100%	{transform: translateY(0px); text-shadow: 0 50px 0 #fff;}
+}
+#page1 .scrollToContactPage {
+	text-decoration: underline;
 }
 #page1 .scroller {
 

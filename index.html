@@ -27,7 +27,7 @@
 <h1>Welcome</h1>
 <h2>to my laboratory</h2>
 </footer>
-<p class="welcomeMessage">Welcome to my personal website. Everything you see here was coded and hand-drawn from scratch. I only use libraries in the <i>React</i> section below. If you want to hire me to build you an awesome website or optimise your exiting one, you can find all the ways to contact me <a class='scrollToContactPage' href=''>here</a></p>
+<p class="welcomeMessage">Welcome to my personal website. Everything you see here was coded and hand-drawn from scratch. I only use libraries in the <i>React</i> section below. If you want to hire me to build you an awesome website or optimise your exiting one, you can find all the ways to contact me <span class='scrollToContactPage' href=''>here</span></p>
 
 <div class='frontPageLink'>
 	<a href='https://github.com/frdvorak'><i class="fab fa-github-square"></i></a>
@@ -301,7 +301,7 @@
 					<i class="fas fa-thumbs-up"></i>
 				</div>
 				<div class='contactBoard contactPhone'>
-					<p>Temporarily removed</p>
+					<p>07392757562</p>
 					<i class="fas fa-phone"></i>
 				</div>
 				<div class='contactBoard contactEmail'>
@@ -329,7 +329,7 @@
 			<figure class='contactButton contactButton1' href='#'>
 					<span class='front'><i class="fas fa-phone"></i></span>
 					<span class='center'></span>
-					<span class='back'>temporarily removed</span>
+					<span class='back'>07392757562</span>
 			</figure>
 			<figure class='contactButton contactButton2' href='#'>
 					<span class='front'><i class="fas fa-envelope"></i></span>
@@ -357,12 +357,20 @@ const page3 = document.getElementById('page3');
 ///// scroller controls /////
 const scrollerOnTopPage = document.querySelector('#page1 .scroller');
 const scrollerOnBottomPage = document.querySelector('#page3 .scroller');
+const scrollToContactPage = document.querySelector('#page1 .scrollToContactPage');
+
 scrollerOnTopPage.addEventListener('click', function(){
 	page2.scrollIntoView({behavior: 'smooth', block: "start",});
 })
+
+scrollToContactPage.addEventListener('click', function(){
+	page3.scrollIntoView({behavior: 'smooth', block: "start",});
+})
+
 scrollerOnBottomPage.addEventListener('click', function(){
 	page1.scrollIntoView({behavior: 'smooth', block: "start",});
 })
+
 document.addEventListener('scroll', function(){
 	if (window.scrollY>100){
 		scrollerOnTopPage.style.opacity = '0';
