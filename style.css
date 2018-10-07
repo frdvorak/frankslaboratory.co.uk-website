@@ -673,7 +673,8 @@ body {
 	position: absolute;
 	width: 100%;
 	text-align: center;
-	background: #6c60b2;
+	//background: #6c60b2;
+	background: gray;
 	color: white;
 	margin: 3vw 0 0;
 	padding: .5vw 0;
@@ -688,7 +689,8 @@ body {
 	left: -3vw;
 	width: 3vw;
 	height: 100%;
-	background: #7d6fce;
+	//background: #7d6fce;
+	background: lightgray;
 	transform-origin: top right;
 	transform: skewY(45deg);
 }
@@ -1004,7 +1006,6 @@ figure:hover span.center:before{
 	}
 	.contactButtons {
 		position: absolute;
-
 		width: 97vw;
 		height: 20px;
 		top: 4vh;
