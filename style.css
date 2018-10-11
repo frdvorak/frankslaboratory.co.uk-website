@@ -317,8 +317,9 @@ body {
 /************************************ PAGE 2 **************************************/
 #page2 {
 	background-color: #1d1f20;
-	min-height: 550px;
+	min-height: 350px;
 	height: auto;
+	
 }
 #page2 h2 {
 	color: black;
@@ -349,10 +350,10 @@ body {
 	width: 100%;
 	display: grid;
 	grid-template-columns:  auto auto auto;
-	grid-template-rows: auto auto auto;
+	grid-template-rows: auto auto;
 	grid-column-gap: 7px;
 	grid-row-gap: 7px;
-	min-height: 600px;
+	min-height: 400px;
 }
 
 #page2 header {
@@ -461,11 +462,11 @@ body {
 .img4 {background-image: url('images/preview_3dbox.png');}
 .img5 {background-image: url('images/preview_menuHoverEffects.png');}
 .img6 {background-image: url('images/preview_socialicons.png');}
-.img7 {background-image: url('images/preview_canvasparticles.jpg');}
+.img7 {background-image: url('images/preview_canvasparticles.png');}
 
 .react1 {background-image: url('images/preview_movie-search.jpg');}
-.react2 {background-image: url('images/preview_react-portfolio.jpg');}
-.react3 {background-image: url('images/preview_text-generator.jpg');}
+.react2 {background-image: url('images/preview_react-portfolio.png');}
+.react3 {background-image: url('images/preview_weather-app.png');}
 
 
 
@@ -1177,7 +1178,7 @@ figure:hover span.center:before{
 	min-height: 250px;
 }
 #page2 .vanillaJsBox{
-	min-height: 700px;
+	min-height: 500px;
 }
 /********************** LARGE SCREENS (WIDE) PAGE 3************************/
 .contactButton span{
