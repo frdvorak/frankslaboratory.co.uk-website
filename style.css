@@ -466,7 +466,7 @@ body {
 
 .react1 {background-image: url('images/preview_movie-search.jpg');}
 .react2 {background-image: url('images/preview_react-portfolio.png');}
-.react3 {background-image: url('images/preview_weather-app.png');}
+.react3 {background-image: url('images/preview_weather-app.jpg');}
 
 
 
@@ -928,7 +928,7 @@ figure:hover span.center:before{
 	left: 2%;
 	top: 2%;
 	width: auto;
-	height: auto;
+	height: 100px;
 	z-index: 100;
 }
 #page1 h1 {
@@ -940,7 +940,7 @@ figure:hover span.center:before{
 }
 #page1 h2 {
 	font-size:5vw;
-	top: -1%;
+	top: -10%;
 	left: 35%;
 	animation: appear 5s forwards 1.5s;
 	background: none;
@@ -951,6 +951,7 @@ figure:hover span.center:before{
 	top: auto;
 	bottom: 145px;
 	text-align: justify;
+	z-index: 500;
 }
 .firstTypedLine, .secondTypedLine {
 	display: none;
